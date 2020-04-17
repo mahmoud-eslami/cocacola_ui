@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Product extends StatefulWidget {
+class Market extends StatefulWidget {
   @override
-  _ProductState createState() => _ProductState();
+  _MarketState createState() => _MarketState();
 }
 
-class _ProductState extends State<Product> {
+class _MarketState extends State<Market> {
   @override
   Widget build(BuildContext context) {
     return Container();
