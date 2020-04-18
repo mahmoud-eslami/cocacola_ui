@@ -46,7 +46,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Container(
-          height: 75,
+          height: 60,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

@@ -20,11 +20,11 @@ class _HomeState extends State<Home> {
             child: CustomPaint(
               painter: CurvePainter(),
               child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Image.asset(
@@ -45,9 +45,17 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      StoryWidget(imgPath: 'assets/images/coccaa.png',),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 120,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 5,
+                          itemBuilder: (context, index) => StoryWidget(
+                                imgPath: 'assets/images/coccaa.png',
+                              ),),
+                    )
+                  ],
                 ),
               ),
             )),
@@ -65,7 +73,7 @@ class CurvePainter extends CustomPainter {
 
     var path = Path();
 
-    path.moveTo(0, size.height * .9);
+    path.moveTo(0, size.height * 1);
     path.quadraticBezierTo(
         size.width / 4, size.height / .6, size.width, size.height * 1);
     path.lineTo(size.width, 0);
