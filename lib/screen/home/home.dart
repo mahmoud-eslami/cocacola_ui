@@ -1,4 +1,6 @@
 import 'package:cocacolaui/resource/colors/colors.dart';
+import 'package:cocacolaui/resource/strings/strings.dart';
+import 'package:cocacolaui/widget/story_widget/story_widget.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -9,17 +11,52 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: MediaQuery.of(context).size.width,
-      child: CustomPaint(
-        painter: CurvePainter(),
-      )
+    TextTheme textTheme = Theme.of(context).textTheme;
+    return Column(
+      children: <Widget>[
+        Container(
+            height: 200,
+            width: MediaQuery.of(context).size.width,
+            child: CustomPaint(
+              painter: CurvePainter(),
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/menu.png',
+                            width: 25,
+                            height: 25,
+                          ),
+                          Text(
+                            Strings.homeTitle,
+                            style: textTheme.title.copyWith(
+                              color: AppColors.lightTextColor,
+                            ),
+                          ),
+                          Icon(
+                            Icons.search,
+                            size: 32,
+                            color: AppColors.lightTextColor,
+                          ),
+                        ],
+                      ),
+                      StoryWidget(imgPath: 'assets/images/coccaa.png',),
+                    ],
+                  ),
+                ),
+              ),
+            )),
+      ],
     );
   }
 }
 
-class CurvePainter extends CustomPainter{
+class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
@@ -28,9 +65,9 @@ class CurvePainter extends CustomPainter{
 
     var path = Path();
 
-    path.moveTo(0, size.height * .25);
+    path.moveTo(0, size.height * .9);
     path.quadraticBezierTo(
-        size.width / 2, size.height / 2, size.width, size.height * 0.25);
+        size.width / 4, size.height / .6, size.width, size.height * 1);
     path.lineTo(size.width, 0);
     path.lineTo(0, 0);
 
@@ -41,5 +78,4 @@ class CurvePainter extends CustomPainter{
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
   }
-
 }
